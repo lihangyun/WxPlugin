@@ -29,4 +29,5 @@ public class FloatRemoteService extends Service {
         mFloatViewManager.destroy();
     }
 
+
 }

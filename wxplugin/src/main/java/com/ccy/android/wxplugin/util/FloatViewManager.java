@@ -35,7 +35,6 @@ public class FloatViewManager {
 
     public FloatViewManager(Context context) {
         EventBus.getDefault().register(this);
-
         initWindowManager(context);
 
         mView = LayoutInflater.from(context).inflate(R.layout.remote_view, null);
@@ -73,7 +72,7 @@ public class FloatViewManager {
                 | WindowManager.LayoutParams.FLAG_NOT_TOUCH_MODAL;// 使悬浮窗可接受事件
         // 背景显示格式，透明格式，默认不透明
         mLayoutParams.format = PixelFormat.TRANSPARENT;
-        mLayoutParams.gravity = Gravity.END | Gravity.BOTTOM;
+        mLayoutParams.gravity = Gravity.START | Gravity.TOP;
         mLayoutParams.width = WindowManager.LayoutParams.WRAP_CONTENT;
         mLayoutParams.height = WindowManager.LayoutParams.WRAP_CONTENT;
     }
@@ -94,7 +93,7 @@ public class FloatViewManager {
     }
 
     /**
-     *
+     * 回收资源
      */
     public void destroy() {
         EventBus.getDefault().unregister(this);

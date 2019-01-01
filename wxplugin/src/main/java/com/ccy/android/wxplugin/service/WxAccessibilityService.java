@@ -27,12 +27,10 @@ public class WxAccessibilityService extends AccessibilityService {
      */
     private static final String TAG = "WxAccessibilityService";
 
-
     /**
      * 开始执行群发操作标记，默认false
      */
     private boolean isStart = false;
-
 
     @Override
     public void onAccessibilityEvent(AccessibilityEvent event) {
@@ -53,7 +51,6 @@ public class WxAccessibilityService extends AccessibilityService {
                     break;
             }
         }
-
     }
 
     @Override

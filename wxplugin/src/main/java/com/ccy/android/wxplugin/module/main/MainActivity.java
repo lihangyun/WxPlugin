@@ -1,4 +1,4 @@
-package com.ccy.android.wxplugin.main;
+package com.ccy.android.wxplugin.module.main;
 
 import android.annotation.TargetApi;
 import android.content.ActivityNotFoundException;
@@ -7,8 +7,14 @@ import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.Settings;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.design.widget.NavigationView;
+import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Switch;
@@ -18,16 +24,17 @@ import com.ccy.android.wxplugin.R;
 import com.ccy.android.wxplugin.base.BaseActivity;
 import com.ccy.android.wxplugin.constant.Constant;
 import com.ccy.android.wxplugin.data.DataHelper;
-import com.ccy.android.wxplugin.main.contract.MainContract;
-import com.ccy.android.wxplugin.main.presenter.MainPresenterImpl;
+import com.ccy.android.wxplugin.module.about.AboutActivity;
+import com.ccy.android.wxplugin.module.main.contract.MainContract;
+import com.ccy.android.wxplugin.module.main.presenter.MainPresenterImpl;
 import com.ccy.android.wxplugin.service.FloatRemoteService;
 import com.ccy.android.wxplugin.service.WxAccessibilityService;
+import com.tencent.bugly.beta.Beta;
 
 import butterknife.BindView;
 import butterknife.OnClick;
 
 public class MainActivity extends BaseActivity implements MainContract.View {
-
 
     /**
      * 悬浮窗权限页面请求code
@@ -41,6 +48,14 @@ public class MainActivity extends BaseActivity implements MainContract.View {
     Switch mOverStatusCheckBox;
     @BindView(R.id.message)
     EditText messageEditText;
+    @BindView(R.id.toolbar)
+    Toolbar mToolbar;
+
+    @BindView(R.id.main_draw_layout)
+    DrawerLayout mDrawerLayout;
+    @BindView(R.id.main_nv)
+    NavigationView mNavigationView;
+
     private MainPresenterImpl mPresenter;
 
     @OnClick({R.id.go_access_ui, R.id.go_wx_ui, R.id.go_over_window})
@@ -80,10 +95,37 @@ public class MainActivity extends BaseActivity implements MainContract.View {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setToolbar();
+
         mPresenter = new MainPresenterImpl();
 
-
         showFloatWindow();
+
+
+    }
+
+    private void setToolbar() {
+        setSupportActionBar(mToolbar);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, mDrawerLayout, mToolbar, R.string.open_drawer_content_desc, R.string.close_drawer_content_desc);
+        toggle.syncState();
+        mDrawerLayout.addDrawerListener(toggle);
+
+        mNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.action_about:
+                        goActivity(AboutActivity.class);
+                        break;
+                    case R.id.action_update:
+                        Beta.checkUpgrade(true, true);
+                        break;
+                    default:
+                        return false;
+                }
+                return true;
+            }
+        });
     }
 
 
@@ -175,8 +217,6 @@ public class MainActivity extends BaseActivity implements MainContract.View {
         } catch (ActivityNotFoundException e) {
             Toast.makeText(this, "微信未安装", Toast.LENGTH_SHORT).show();
         }
-
-
     }
 
 

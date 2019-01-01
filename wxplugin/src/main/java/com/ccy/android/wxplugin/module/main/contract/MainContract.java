@@ -1,4 +1,4 @@
-package com.ccy.android.wxplugin.main.contract;
+package com.ccy.android.wxplugin.module.main.contract;
 
 import com.ccy.android.wxplugin.base.BasePresenter;
 import com.ccy.android.wxplugin.base.BaseView;

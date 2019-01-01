@@ -57,4 +57,9 @@ public class Constant {
      * 输入框控件的id
      */
     public static final String EDIT_TEXT_VIEW_ID = "com.tencent.mm:id/aie";
+
+    /**
+     * bugly的id
+     */
+    public static final String BUGLY_ID = "23c4ac2aa3";
 }
