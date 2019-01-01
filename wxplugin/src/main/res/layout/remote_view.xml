@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <com.ccy.android.wxplugin.view.RemoteView
+        android:id="@+id/remote_rv"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:alpha="0.5"
+        android:background="@drawable/shape_cise"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/remote_perform"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="开始群发"
+            android:textColor="#fff" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/colorPrimary"
+            android:text="打开菜单"
+            android:visibility="gone" />
+    </com.ccy.android.wxplugin.view.RemoteView>
+
+</FrameLayout>

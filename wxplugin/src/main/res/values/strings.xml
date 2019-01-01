@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">自动化群发</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="service_label">微信群发辅助服务</string>
+    <string name="accessibility_description">1.开启此服务才能进行自动化群发\n2.请不要开启多个同类服务，可能会冲突\n3.ccy yjy</string>
+    <string name="title_activity_welcome">WelcomeActivity</string>
+</resources>
