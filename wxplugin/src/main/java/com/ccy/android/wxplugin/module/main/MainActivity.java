@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Switch;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.ccy.android.wxplugin.R;
@@ -25,6 +26,7 @@ import com.ccy.android.wxplugin.base.BaseActivity;
 import com.ccy.android.wxplugin.constant.Constant;
 import com.ccy.android.wxplugin.data.DataHelper;
 import com.ccy.android.wxplugin.module.about.AboutActivity;
+import com.ccy.android.wxplugin.module.addmessage.AddMessageActivity;
 import com.ccy.android.wxplugin.module.main.contract.MainContract;
 import com.ccy.android.wxplugin.module.main.presenter.MainPresenterImpl;
 import com.ccy.android.wxplugin.service.FloatRemoteService;
@@ -55,10 +57,12 @@ public class MainActivity extends BaseActivity implements MainContract.View {
     DrawerLayout mDrawerLayout;
     @BindView(R.id.main_nv)
     NavigationView mNavigationView;
+    @BindView(R.id.send_message)
+    TextView mSendMessageTextView;
 
     private MainPresenterImpl mPresenter;
 
-    @OnClick({R.id.go_access_ui, R.id.go_wx_ui, R.id.go_over_window})
+    @OnClick({R.id.go_access_ui, R.id.go_wx_ui, R.id.go_over_window, R.id.send_message})
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.go_access_ui:
@@ -84,12 +88,21 @@ public class MainActivity extends BaseActivity implements MainContract.View {
             case R.id.go_over_window:
                 goOver();
                 break;
+            // 发送消息
+            case R.id.send_message:
+                goActivity(AddMessageActivity.class);
+                break;
         }
     }
 
     @Override
     protected int getLayoutId() {
         return R.layout.activity_main;
+    }
+
+    @Override
+    protected Toolbar getToolBar() {
+        return null;
     }
 
     @Override

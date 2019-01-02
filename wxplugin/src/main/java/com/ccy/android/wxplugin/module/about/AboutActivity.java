@@ -21,19 +21,14 @@ public class AboutActivity extends BaseActivity {
     }
 
     @Override
+    protected Toolbar getToolBar() {
+        return mToolbar;
+    }
+
+    @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        setToolbar();
     }
 
-    private void setToolbar() {
-        setSupportActionBar(mToolbar);
-        mToolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-    }
+
 }

@@ -37,7 +37,6 @@
             android:name=".module.about.AboutActivity"
             android:label="@string/title_activity_about"
             android:theme="@style/AppTheme.NoActionBar" />
-
         <activity
             android:name="com.tencent.bugly.beta.ui.BetaActivity"
             android:configChanges="keyboardHidden|orientation|screenSize|locale"
@@ -56,11 +55,9 @@
                 android:name="android.accessibilityservice"
                 android:resource="@xml/accessibility_config" />
         </service>
-
         <service
             android:name=".service.FloatRemoteService"
             android:exported="false" />
-
 
         <provider
             android:name="android.support.v4.content.FileProvider"
@@ -72,7 +69,10 @@
                 android:resource="@xml/provider_paths" />
         </provider>
 
-
+        <activity
+            android:name=".module.addmessage.AddMessageActivity"
+            android:label="@string/title_activity_add_message"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

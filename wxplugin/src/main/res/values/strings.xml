@@ -3,6 +3,7 @@
 
     <string name="action_about">关于我们</string>
     <string name="action_update">版本更新</string>
+    <string name="action_next">下一步</string>
 
     <string name="service_label">微信群发辅助服务</string>
     <string name="accessibility_description">1.开启此服务才能进行自动化群发\n2.请不要开启多个同类服务，可能会冲突\n3.ccy yjy</string>
@@ -13,4 +14,5 @@
     <string name="title_activity_about">关于我们</string>
 
     <string name="back">返回</string>
+    <string name="title_activity_add_message">消息</string>
 </resources>

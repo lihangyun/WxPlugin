@@ -61,6 +61,22 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:text="打开微信" />
+
+            <TextView
+                android:id="@+id/send_message"
+                android:layout_width="wrap_content"
+                android:text="群发消息"
+                android:layout_height="48dp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="群发群消息"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:text="群发图片"
+                android:layout_height="wrap_content" />
         </LinearLayout>
 
         <android.support.design.widget.NavigationView
